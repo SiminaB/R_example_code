@@ -1,0 +1,72 @@
+---
+title: "Example R markdown file"
+author: "Simina M. Bocas"
+output: html_document
+---
+
+# Header 
+## Header 2
+### Header 3
+#### Header 4
+##### Header 5
+
+This chunk gives some general settings for the whole document. You can change them in 
+individual chunks.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, include=TRUE, fig.path="figures/")
+```
+
+Can use _italics_ (also like *this*) or **bold** font. Can also include some
+math text, like $\alpha = 0.05, \bar{X} = 1/n\sum_{i=1}^n X_i$.
+Look for more tips [here](https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)! 
+
+## Make some plots!
+
+Let's generate some numbers and make a histogram! Don't need to name chunks but this can make it easier to pinpoint bugs.
+```{r hist}
+set.seed(88759)
+x <- rnorm(1000)
+
+hist(x, col="grey", main = "1000 standard normal draws")
+```
+
+In order to make it easier to find the plot, change options above!
+
+Maybe you don't want to show the code! Change echo to FALSE above if you want that to be the default or just in individual chunks:
+```{r hist_t_dist, echo=TRUE}
+set.seed(88759)
+t_df_3 <- rt(1000, df=3)
+
+hist(t_df_3, col="grey", main = "1000 draws from t distribution with 3 df")
+```
+
+Save the values you generated:
+```{r save_x_t}
+save(list=c("x","t_df_3"), file="../objs/example_objs.RData")
+```
+
+## Make some tables!
+```{r kable}
+library(kableExtra)
+kable(table(round(t_df_3)))
+```
+
+Use ``styling":
+```{r kable_change_res}
+kable(table(round(t_df_3))) %>% kable_styling()
+
+kable(table(round(t_df_3))) %>% kable_styling(full_width = FALSE)
+
+```
+
+## Can run inline code!
+
+Can use this if you need results inline: The 0.975^th^ quantile of the standard normal distribution is
+`r round(qnorm(0.975),2)` whereas for a t-distribution with 3 df it is
+`r round(qt(0.975,df=3),2)`.
+
+It's always good to end with this:
+```{r}
+sessionInfo()
+```
+

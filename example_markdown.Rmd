@@ -1,6 +1,6 @@
 ---
 title: "Example R markdown file"
-author: "Simina M. Bocas"
+author: "Simina M. Boca"
 output: html_document
 ---
 

@@ -2,6 +2,7 @@
 title: "Example R markdown file"
 author: "Simina M. Boca"
 output: html_document
+always_allow_html: true
 ---
 
 # Header 

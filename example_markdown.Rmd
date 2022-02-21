@@ -27,7 +27,8 @@ Let's generate some numbers and make a histogram! Don't need to name chunks but 
 ```{r hist}
 set.seed(88759)
 x <- rnorm(1000)
-
+mean(x)
+sd(x)
 hist(x, col="grey", main = "1000 standard normal draws")
 ```
 

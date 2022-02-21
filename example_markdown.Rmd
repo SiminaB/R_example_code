@@ -32,10 +32,10 @@ sd(x)
 hist(x, col="grey", main = "1000 standard normal draws")
 ```
 
-In order to make it easier to find the plot, change options above!
+In order to make it easier to find the plot, change options in setup chunk!
 
-Maybe you don't want to show the code! Change echo to FALSE above if you want that to be the default or just in individual chunks:
-```{r hist_t_dist, echo=TRUE}
+Maybe you don't want to show the code! Change echo to FALSE in setup chunk if you want that to be the default or just in individual chunks:
+```{r hist_t_dist, echo=ECHO}
 set.seed(88759)
 t_df_3 <- rt(1000, df=3)
 
